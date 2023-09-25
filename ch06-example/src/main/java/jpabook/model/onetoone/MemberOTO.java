@@ -1,18 +1,17 @@
-package jpabook.model.entity;
+package jpabook.model.onetoone;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 //@Entity
-@Getter
-@Setter
+@Table(name = "MEMBER_OTO")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+@Data
+public class MemberOTO { // 6.10 일대일 주 테이블에 외래 키. 단방향 예제 코드
 
     @Id
     @GeneratedValue
@@ -21,8 +20,8 @@ public class Member {
 
     private String username;
 
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
 
 }
