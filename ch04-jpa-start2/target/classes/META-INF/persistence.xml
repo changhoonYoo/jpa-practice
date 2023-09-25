@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="jpabook">
+
+        <properties>
+
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/testDB"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="false" />
+            <property name="hibernate.id.new_generator_mappings" value="true" /> <!-- 키 생성 전략 사용 유무 -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            
+            <!-- 기본 매핑 이름 -->
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
+            <!-- 테이블 명이나 컬럼명이 생략되면 자바의 카멜 표기법을 테이블의 언더스코어 표기법으로 매핑 -->
+        </properties>
+    </persistence-unit>
+
+</persistence>
