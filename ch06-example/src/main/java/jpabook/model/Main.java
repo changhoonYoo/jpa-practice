@@ -1,7 +1,9 @@
 package jpabook.model;
 
 import jpabook.model.entity.Member;
+import jpabook.model.entity.MemberTwo;
 import jpabook.model.entity.Team;
+import jpabook.model.entity.TeamTwo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,12 +48,24 @@ public class Main {
 //            em.persist(member);
 
             // 팀1 삭제 시도
-            Team team = em.find(Team.class, 1L);
-            List<Member> members = team.getMembers();
-            for (Member member : members) {
-                member.setTeam(null);
-            }
-            em.remove(team);
+//            Team team = em.find(Team.class, 1L);
+//            List<Member> members = team.getMembers();
+//            for (Member member : members) {
+//                member.setTeam(null);
+//            }
+//            em.remove(team);
+
+            //예제 6.5 일대다 단방향 회원 엔티티
+            MemberTwo member1 = new MemberTwo("member1");
+            MemberTwo member2 = new MemberTwo("member2");
+
+            TeamTwo team1 = new TeamTwo("team1");
+            team1.getMembers().add(member1);
+            team1.getMembers().add(member2);
+
+            em.persist(member1); //INSERT - member1
+            em.persist(member2); //INSERT - member2
+            em.persist(team1); //INSERT - team1, UPDATE - member1.fk, member2.fk
 
             tx.commit();//트랜잭션 커밋
 
