@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.entity.Parent;
+import org.example.entity.ParentId;
 import org.example.entity.item.Book;
 import org.example.entity.item.Item;
 
@@ -48,6 +50,30 @@ public class Main {
             //단일 테이블 전략: 조인 x
 
 
+            //---------------------------------------------------------------//
+
+            //예제 7.7 식별자 클래스 복합키 엔티티 저장
+//            Parent parent = new Parent();
+//            parent.setId1("myId1");
+//            parent.setId2("myId2");
+//            parent.setName("parentName");
+//            em.persist(parent);
+
+            //복합키로 조회
+//            ParentId parentId = new ParentId("myId1","myId2");
+//            Parent parent = em.find(Parent.class,parentId);
+
+            //@EmbeddedId 사용 엔티티 저장
+//            Parent parent = new Parent();
+//            ParentId parentId = new ParentId("myId1","myId2");
+//            parent.setId(parentId);
+//            parent.setName("parentName");
+//            em.persist(parent);
+
+            //@EmbeddedId 사용 엔티티 조회
+            ParentId parentId = new ParentId("myId1","myId2");
+            Parent parent = em.find(Parent.class,parentId);
+            System.out.println("parent.getName()= "+parent.getName());
 
             tx.commit();//트랜잭션 커밋
 
