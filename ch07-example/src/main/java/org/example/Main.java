@@ -2,6 +2,8 @@ package org.example;
 
 import org.example.entity.Parent;
 import org.example.entity.ParentId;
+import org.example.entity.board.Board;
+import org.example.entity.board.BoardDetail;
 import org.example.entity.item.Book;
 import org.example.entity.item.Item;
 
@@ -71,10 +73,19 @@ public class Main {
 //            em.persist(parent);
 
             //@EmbeddedId 사용 엔티티 조회
-            ParentId parentId = new ParentId("myId1","myId2");
-            Parent parent = em.find(Parent.class,parentId);
-            System.out.println("parent.getName()= "+parent.getName());
+//            ParentId parentId = new ParentId("myId1","myId2");
+//            Parent parent = em.find(Parent.class,parentId);
+//            System.out.println("parent.getName()= "+parent.getName());
 
+            //예제 7.13 일대일 식별 관계 저장
+            Board board = new Board();
+            board.setTitle("제목");
+            em.persist(board);
+
+            BoardDetail boardDetail = new BoardDetail();
+            boardDetail.setContent("내용");
+            boardDetail.setBoard(board);
+            em.persist(boardDetail);
             tx.commit();//트랜잭션 커밋
 
         } catch (Exception e) {
