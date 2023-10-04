@@ -34,13 +34,20 @@ public class Main {
 //            printUserAndTeam(2L,em); //회원 및 팀 정보 출력
 //            printUser(2L,em); // 회원의 정보 출력
 
-            Member member = em.getReference(Member.class,2L);
-            System.out.println("Member member = em.getReference(Member.class, 2L);");
-            System.out.println("member 인스턴스 초기화 여부: " + em.getEntityManagerFactory().getPersistenceUnitUtil().isLoaded(member));
-            String username = member.getUsername();
-            System.out.println("member.getUsername();");
-            System.out.println("member 인스턴스 초기화 여부: " + em.getEntityManagerFactory().getPersistenceUnitUtil().isLoaded(member));
-            System.out.println("memberProxy = " + member.getClass().getName());
+//            Member member = em.getReference(Member.class,2L);
+//            System.out.println("Member member = em.getReference(Member.class, 2L);");
+//            System.out.println("member 인스턴스 초기화 여부: " + em.getEntityManagerFactory().getPersistenceUnitUtil().isLoaded(member));
+//            String username = member.getUsername();
+//            System.out.println("member.getUsername();");
+//            System.out.println("member 인스턴스 초기화 여부: " + em.getEntityManagerFactory().getPersistenceUnitUtil().isLoaded(member));
+//            System.out.println("memberProxy = " + member.getClass().getName());
+
+            //지연 로딩 실행 코드
+//            Member member = em.find(Member.class,2L);
+//            Team team = member.getTeam();
+//            System.out.println("Team team = member.getTeam();");
+//            System.out.println("team.getName();" + team.getName());
+
 
             tx.commit();//트랜잭션 커밋
 
