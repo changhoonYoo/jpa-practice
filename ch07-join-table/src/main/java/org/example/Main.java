@@ -1,8 +1,8 @@
 package org.example;
 
 
-import org.example.onetomanyjointable.Child;
-import org.example.onetomanyjointable.Parent;
+import org.example.manytomanyjointable.Child;
+import org.example.manytomanyjointable.Parent;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -66,13 +66,59 @@ public class Main {
 //            em.persist(child2);
 
             //일대다 조인 테이블 조회
-            Parent parent = em.find(Parent.class,1L);
-            List<Child> children = parent.getChild();
-            for(Child child : children) {
-                System.out.println(parent.getName()+"의 자식 : "+child.getName());
-            }
+//            Parent parent = em.find(Parent.class,1L);
+//            List<Child> children = parent.getChild();
+//            for(Child child : children) {
+//                System.out.println(parent.getName()+"의 자식 : "+child.getName());
+//            }
+//            Child child = em.find(Child.class,3L);
+//            System.out.println("CHILD_ID=3 : "+child.getName());
 
             //다대일 조인 테이블 저장
+//            Parent parent = new Parent();
+//            parent.setName("부모");
+//
+//            Child child1 = new Child();
+//            Child child2 = new Child();
+//            child1.setName("자식1");
+//            child2.setName("자식2");
+//            child1.setParent(parent);
+//            child2.setParent(parent);
+//
+//            em.persist(parent);
+//            em.persist(child1);
+//            em.persist(child2);
+
+            //다대일 조인 테이블 조회
+//            Parent parent = em.find(Parent.class, 1L);
+//            for(Child child : parent.getChild()) {
+//                System.out.println(child.getName());
+//            }
+
+            //다대다 조인 테이블 저장
+//            Parent parent = new Parent();
+//            parent.setName("부모");
+//
+//            Child child1 = new Child();
+//            Child child2 = new Child();
+//            child1.setName("자식1");
+//            child2.setName("자식1");
+//
+//            em.persist(parent);
+//            em.persist(child1);
+//            em.persist(child2);
+
+            //다대다 조인 테이블 조회 및 연관관계 설정
+//            Parent parent = em.find(Parent.class, 1L);
+//            Child child1 = em.find(Child.class, 2L);
+//            Child child2 = em.find(Child.class, 3L);
+//
+//            List<Child> children = new ArrayList<>();
+//            children.add(child1);
+//            children.add(child2);
+//            parent.setChild(children);
+
+            
             tx.commit();//트랜잭션 커밋
 
         } catch (Exception e) {

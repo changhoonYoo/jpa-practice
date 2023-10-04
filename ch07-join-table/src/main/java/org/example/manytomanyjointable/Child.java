@@ -1,4 +1,4 @@
-package org.example.onetomanyjointable;
+package org.example.manytomanyjointable;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-//@Entity
+@Entity
 @NoArgsConstructor
 @Setter
 @Getter

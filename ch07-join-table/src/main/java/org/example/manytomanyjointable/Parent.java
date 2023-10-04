@@ -1,5 +1,4 @@
-package org.example.onetomanyjointable;
-
+package org.example.manytomanyjointable;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,10 +8,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 public class Parent {
 
     @Id
@@ -21,9 +20,8 @@ public class Parent {
     private Long id;
     private String name;
 
-    @OneToMany
+    @ManyToMany
     @JoinTable(name = "PARENT_CHILD",
-            joinColumns = @JoinColumn(name = "PARENT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "CHILD_ID"))
+     joinColumns = @JoinColumn(name = "PARENT_ID"), inverseJoinColumns = @JoinColumn(name = "CHILD_ID"))
     private List<Child> child = new ArrayList<>();
 }
