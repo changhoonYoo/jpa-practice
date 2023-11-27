@@ -58,6 +58,12 @@ public class Main {
 //            Parent parent1 = em.find(Parent.class, 1L);
 //            parent1.getChildren().clear(); // 고아객체 자동 제거 orphanRemoval = true
 
+//            Parent parent = em.find(Parent.class, 1L);
+//            Child child = new Child();
+//            parent.addChild(child); // 자식을 저장하려면 부모에 등록만 하면 된다. CASCADE
+
+//            Parent parent = em.find(Parent.class, 1L);
+//            parent.getChildren().remove(0); // 자식을 삭제하려면 부모에서 제거하면 된다. orphanRemoval
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();

@@ -20,4 +20,8 @@ public class Parent {
 //    @OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE) //영속성 전이 자식 같이 삭제
     @OneToMany(mappedBy = "parent", orphanRemoval = true, cascade = CascadeType.ALL) //고아객체(연관관계가 끊어진 자식 엔티티) 같이 제거
     private List<Child> children = new ArrayList<>();
+
+    public void addChild(Child child) {
+        this.getChildren().add(child);
+    }
 }
